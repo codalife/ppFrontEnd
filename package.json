@@ -1,7 +1,7 @@
 {
   "name": "PPFrontEnd",
   "version": "1.0.0",
-  "description": "Simple starter package for Redux with React and Babel support",
+  "description": "PayPal FrontEnd Dev assignment",
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
@@ -17,7 +17,6 @@
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "chai": "^3.5.0",
-    "chai-jquery": "^2.0.0",
     "mocha": "^2.4.5",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
