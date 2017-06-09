@@ -1,14 +1,29 @@
 import React from 'react';
-// import { Component } from 'react';
-
+import axios from 'axios';
+import Form from './form'
 import Locale from './locales';
 import Dedupe from './dedupe';
 
 export default class LocalesGroup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {dedupe: false};
+    this.state = {
+      info: [],
+      query: 'The result will be displayed below',
+      dedupe: false
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.onChoice = this.onChoice.bind(this);
+  }
+  onChoice(query){
+    const self = this;
+    axios.post('http://localhost:3000/', {query: query})
+      .then(response => {
+        self.setState({
+          info: response.data,
+          query: query
+        })
+      })
   }
   handleClick(e){
     e.preventDefault();
@@ -22,12 +37,10 @@ export default class LocalesGroup extends React.Component {
     if(this.state.dedupe){
       let dedupeSet = {};
 
-      this.props.info.map((q, index) => {
+      this.state.info.map((q, index) => {
         let lang, symbol;
 
         for(let key in q){
-          // lang = key;
-          // symbol = data[key];
           if(dedupeSet.hasOwnProperty(q[key])){
             dedupeSet[q[key]].push(key);
           } else {
@@ -40,15 +53,16 @@ export default class LocalesGroup extends React.Component {
         <Dedupe symbol={symbol[0]} langs={symbol[1]} key={index}/>
       );
     } else {
-      listItems = this.props.info.map((q, index) =>
+      listItems = this.state.info.map((q, index) =>
         <Locale data={q} key={index}/>
       );
     }
 
     return (
-      <div>
+      <div className={`col-md-${this.props.col}`}>
         <div className="page-header">
-          <h1>{this.props.query}</h1>
+          <Form handleClick={this.onChoice}/>
+          <h1>{this.state.query}</h1>
           <button onClick={this.handleClick} type="button" className="btn btn-primary">Dedupe toggle</button>
         </div>
         {listItems}

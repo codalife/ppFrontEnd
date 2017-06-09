@@ -18,7 +18,7 @@ export default class Container extends React.Component {
         <div className="carousel-caption">
           <h2>Choose deliminator</h2>
           <br/>
-          <Form handleClick={this.props.handleClick}/>
+          <button className="btn-danger" onClick={this.props.addLocale}>Add Locale</button>
         </div>
       </header>
     );

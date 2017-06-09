@@ -3,7 +3,7 @@ import { Component } from 'react';
 
 export default class Dedupe extends React.Component {
   render() {
-    const langs = this.props.langs.map( (lang, i) => <button key={i}>{lang}</button>)
+    const langs = this.props.langs.map( (lang, i) => <span className="badge" key={i}>{lang}</span>)
 
     return (
         <div className="col-sm-6 col-md-4">
@@ -18,5 +18,3 @@ export default class Dedupe extends React.Component {
     );
   }
 }
-
-            // <img src="..." alt="..."/>
