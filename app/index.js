@@ -8,4 +8,4 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path='/' component={App}></Route>
   </Router>,
-  document.querySelector('.container'));
+  document.querySelector('.app'));

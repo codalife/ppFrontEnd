@@ -4,18 +4,19 @@ import { Component } from 'react';
 export default class Form extends React.Component {
   render() {
     return (
-      <div className="dropdown">
-        <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Dropdown
-          <span className="caret"></span>
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li role="separator" className="divider"></li>
-          <li><a href="#">Separated link</a></li>
-        </ul>
+      <div className="btn-group" role="group" >
+        <div className="btn-group" role="group">
+          <button className="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Available options { "   " }
+            <span className="caret"></span>
+          </button>
+          <ul className="dropdown-menu">
+            <li onClick={(e) => this.props.handleClick('quotationStart')}><a >quotationStart</a></li>
+            <li onClick={(e) => this.props.handleClick('quotationEnd')}><a >quotationEnd</a></li>
+            <li onClick={(e) => this.props.handleClick('alternateQuotationStart')}><a >alternateQuotationStart</a></li>
+            <li onClick={(e) => this.props.handleClick('alternateQuotationEnd')}><a >alternateQuotationEnd</a></li>
+          </ul>
+        </div>
       </div>
     );
     }
