@@ -24,6 +24,7 @@ export default class App extends Component {
     })
   }
   removeChild(id){
+    console.log("Removing " + id);
     const currentState = this.state.children.slice();
     const newState = currentState.filter( child => {
       return child.id !== id;
@@ -36,8 +37,8 @@ export default class App extends Component {
 
   render() {
     const n = this.state.children.length;
-    const Locales = this.state.children.map( (child, key) =>
-      <LocalesGroup key={key} id={key} col={12/n} removeLocale={this.removeChild} />
+    const Locales = this.state.children.map( (child) =>
+      <LocalesGroup key={child.id} id={child.id} col={12/n} removeLocale={this.removeChild} />
     )
     return (
       <div>
