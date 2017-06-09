@@ -9,7 +9,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      children: [{id: 1}]
+      children: [{id: 0}]
     };
     this.addChild = this.addChild.bind(this);
     this.removeChild = this.removeChild.bind(this);
@@ -27,6 +27,7 @@ export default class App extends Component {
     console.log("Removing " + id);
     const currentState = this.state.children.slice();
     const newState = currentState.filter( child => {
+      console.log(child.id)
       return child.id !== id;
     });
 
