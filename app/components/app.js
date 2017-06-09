@@ -24,10 +24,8 @@ export default class App extends Component {
     })
   }
   removeChild(id){
-    console.log("Removing " + id);
     const currentState = this.state.children.slice();
     const newState = currentState.filter( child => {
-      console.log(child.id)
       return child.id !== id;
     });
 
