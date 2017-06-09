@@ -62,6 +62,7 @@ export default class LocalesGroup extends React.Component {
       <div className={`col-md-${this.props.col}`}>
         <div className="page-header">
           <Form handleClick={this.onChoice}/>
+          <span className="close glyphicon glyphicon-remove-circle" onClick={() => this.props.removeLocale(this.props.id)}></span>
           <h1>{this.state.query}</h1>
           <button onClick={this.handleClick} type="button" className="btn btn-primary">Dedupe toggle</button>
         </div>

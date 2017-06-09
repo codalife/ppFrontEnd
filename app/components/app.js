@@ -12,6 +12,7 @@ export default class App extends Component {
       children: [{id: 1}]
     };
     this.addChild = this.addChild.bind(this);
+    this.removeChild = this.removeChild.bind(this);
   }
   addChild(action){
     const n = this.state.children.length;
@@ -22,10 +23,23 @@ export default class App extends Component {
       children: currentState
     })
   }
+  removeChild(id){
+    console.log("Removing " + id);
+    const currentState = this.state.children.slice();
+    const newState = currentState.filter( child => {
+      return child.id !== id;
+    });
+
+    this.setState({
+      children: newState
+    })
+  }
 
   render() {
     const n = this.state.children.length;
-    const Locales = this.state.children.map( (child, key) =>  <LocalesGroup key={key} col={12/n}/> )
+    const Locales = this.state.children.map( (child, key) =>
+      <LocalesGroup key={key} id={key} col={12/n} removeLocale={this.removeChild} />
+    )
     return (
       <div>
         <Nav />
