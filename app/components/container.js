@@ -1,5 +1,4 @@
 import React from 'react';
-import { Component } from 'react';
 
 import Form from './form';
 
@@ -9,8 +8,7 @@ const imageStyle = {
   backgroundImage: "url(app/assets/background.jpg)"
 };
 
-export default class Container extends React.Component {
-  render() {
+export default function Container(props) {
     return (
       <header className="half">
         <div className="fill" style={imageStyle}></div>
@@ -18,9 +16,8 @@ export default class Container extends React.Component {
         <div className="carousel-caption">
           <h2>Choose deliminator</h2>
           <br/>
-          <button className="btn-danger" onClick={this.props.addLocale}>Add Locale</button>
+          <button className="btn-danger" onClick={props.addLocale}>Add Locale</button>
         </div>
       </header>
     );
-    }
 }

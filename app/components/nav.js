@@ -1,8 +1,6 @@
 import React from 'react';
-import { Component } from 'react';
 
-export default class Nav extends React.Component {
-  render() {
+export default function Nav(props) {
     return (
       <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
           <div className="container">
@@ -11,5 +9,4 @@ export default class Nav extends React.Component {
               </div>
           </div>
       </nav>);
-    }
 }

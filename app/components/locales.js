@@ -1,5 +1,4 @@
 import React from 'react';
-import { Component } from 'react';
 
 export default class Locale extends React.Component {
   render() {
@@ -12,7 +11,7 @@ export default class Locale extends React.Component {
     }
 
     return (
-      <div className="col-md-1">
+      <div className="col-md-2 col-sm-3">
         <h3>{lang} <span className="badge">{q}</span></h3>
       </div>
     );

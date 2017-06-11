@@ -1,8 +1,6 @@
 import React from 'react';
-import { Component } from 'react';
 
-export default class Form extends React.Component {
-  render() {
+export default function Form(props) {
     return (
       <div className="btn-group" role="group" >
         <div className="btn-group" role="group">
@@ -11,13 +9,12 @@ export default class Form extends React.Component {
             <span className="caret"></span>
           </button>
           <ul className="dropdown-menu">
-            <li onClick={(e) => this.props.handleClick('quotationStart')}><a >quotationStart</a></li>
-            <li onClick={(e) => this.props.handleClick('quotationEnd')}><a >quotationEnd</a></li>
-            <li onClick={(e) => this.props.handleClick('alternateQuotationStart')}><a >alternateQuotationStart</a></li>
-            <li onClick={(e) => this.props.handleClick('alternateQuotationEnd')}><a >alternateQuotationEnd</a></li>
+            <li onClick={(e) => props.handleClick('quotationStart')}><a >quotationStart</a></li>
+            <li onClick={(e) => props.handleClick('quotationEnd')}><a >quotationEnd</a></li>
+            <li onClick={(e) => props.handleClick('alternateQuotationStart')}><a >alternateQuotationStart</a></li>
+            <li onClick={(e) => props.handleClick('alternateQuotationEnd')}><a >alternateQuotationEnd</a></li>
           </ul>
         </div>
       </div>
     );
-    }
 }
